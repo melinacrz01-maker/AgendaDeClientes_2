@@ -94,7 +94,15 @@ namespace AgendaDeClientes
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvContactos.CurrentRow == null) return; 
-            
+
+            if (string.IsNullOrWhiteSpace(txtBoxName.Text) || string.IsNullOrWhiteSpace(txtBoxApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxTelefono.Text) || string.IsNullOrWhiteSpace(txtBoxCorreo.Text) ||
+                cmbCategoria.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, complete todos los campos antes de editar el contacto.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var contactoSeleccionado = (Contacto)dgvContactos.CurrentRow.DataBoundItem;
 
             contactoSeleccionado.Nombre = txtBoxName.Text;
@@ -145,6 +153,16 @@ namespace AgendaDeClientes
                         .ToList());
                 }
             }
+        }
+
+        private void AgendaDeContactos_Load(object sender, EventArgs e)
+        {
+
+        }
+       
+        private void txtboxBuscar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

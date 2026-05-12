@@ -267,6 +267,7 @@
             this.txtboxBuscar.Size = new System.Drawing.Size(253, 20);
             this.txtboxBuscar.TabIndex = 4;
             this.txtboxBuscar.Text = "🔍​ Buscar..";
+            this.txtboxBuscar.TextChanged += new System.EventHandler(this.txtboxBuscar_TextChanged);
             this.txtboxBuscar.Enter += new System.EventHandler(this.txtboxBuscar_Enter);
             this.txtboxBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtboxBuscar_KeyDown);
             this.txtboxBuscar.Leave += new System.EventHandler(this.txtboxBuscar_Leave);
@@ -365,7 +366,9 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgendaDeContactos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgendaDeContactos";
+            this.Load += new System.EventHandler(this.AgendaDeContactos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactos)).EndInit();
